@@ -9,8 +9,8 @@ const routes: Routes = [
       component: HomeComponent,
       children: [
           {
-            path: 'catalog-add',
-            loadChildren: () => import('./../app/pages/catalog/add/catalog-add.module').then(m => m.CatalogAddModule),
+            path: 'catalog-list',
+            loadChildren: () => import('./../app/pages/catalog/list/catalog-list.module').then(m => m.CatalogListModule),
           },
           {
             path: 'product-offering',

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {MatDialog} from '@angular/material/dialog';
+import { CatalogAddComponent } from '../catalog/add/catalog-add.component';
 
 @Component({
   selector: 'app-nav-bar',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavBarComponent implements OnInit {
 
-  constructor() { }
+  constructor(public dialog: MatDialog) {}
 
-  ngOnInit(): void {
+  openDialog() {
+    const dialogRef = this.dialog.open(CatalogAddComponent,{
+      height: 'auto',
+      width: '500px',
+    });
   }
 
+  ngOnInit(): void {}
 }

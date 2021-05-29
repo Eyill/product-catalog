@@ -10,7 +10,7 @@ export interface Catalog{
   lifecycleStatus: string,
   name: string,
   version: string,
-  validFor: string,
+  validFor: Date,
   category?: Array<CategoryRef>,
   relatedParty?: Array<RelatedParty>,
   //@baseType: string,

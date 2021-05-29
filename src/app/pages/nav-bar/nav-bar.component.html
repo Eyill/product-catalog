@@ -9,7 +9,7 @@
   </button>
 
   <mat-menu #menu="matMenu">
-    <button mat-menu-item [routerLink]="[ '/catalog-add' ]">
+    <button mat-menu-item (click)="openDialog()">
       <mat-icon>add</mat-icon>
       <span>Hozzáadás</span>
     </button>

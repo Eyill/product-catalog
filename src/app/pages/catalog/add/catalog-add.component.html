@@ -1,46 +1,57 @@
-<form [formGroup]="form">
-  <h3>Katalógus felvétel</h3>
-  
-  <mat-form-field class="max-width">
-    <mat-label>Kapcsolodó link</mat-label>
-    <input matInput placeholder="Pl: mycsp.com:8080/tmf-api/productCatalogManagement/v4/Catalog/3830" focus formControlName="href" required>
-  </mat-form-field>
-  
-  <mat-form-field class="max-width">
-    <mat-label>Katalógus típusa</mat-label>
-    <input matInput focus formControlName="catalogType" required>
-  </mat-form-field>
-  
-  <mat-form-field class="max-width">
-    <mat-label>Leírás</mat-label>
-    <input matInput focus formControlName="description" required>
-  </mat-form-field>
-  
-  <mat-form-field class="max-width">
-    <mat-label>Státusz</mat-label>
-    <input matInput  focus formControlName="lifecycleStatus" required>
-  </mat-form-field>
+<h2 mat-dialog-title>Katalógus felvétel</h2>
+<mat-dialog-content>
+  <form [formGroup]="form" (ngSubmit)="add_catalog()">
 
-  <mat-form-field class="max-width">
-    <mat-label>Megnevezés</mat-label>
-    <input matInput focus formControlName="name" required>
-  </mat-form-field>
-  
-  <mat-form-field class="max-width">
-    <mat-label>Verzió</mat-label>
-    <input matInput  focus formControlName="version" required>
-  </mat-form-field>
+    <mat-form-field class="max-width">
+      <mat-label>Kapcsolodó link</mat-label>
+      <input matInput placeholder="Pl: mycsp.com:8080/tmf-api/productCatalogManagement/v4/Catalog/3830" focus
+        formControlName="href" required>
+    </mat-form-field>
 
-  <mat-form-field class="max-width">
-    <mat-label>Érvényes</mat-label>
-    <input matInput  focus formControlName="validFor" required>
-  </mat-form-field>
+    <mat-form-field class="max-width">
+      <mat-label>Katalógus típusa</mat-label>
+      <input matInput focus formControlName="catalogType" required>
+    </mat-form-field>
 
-  <mat-form-field class="max-width">
-    <mat-label>Kategória</mat-label>
-    <input matInput focus formControlName="category" required>
-  </mat-form-field>
+    <mat-form-field class="max-width">
+      <mat-label>Leírás</mat-label>
+      <input matInput focus formControlName="description" required>
+    </mat-form-field>
 
-  <div style="display: flex; justify-content: flex-end;">
-  </div>
-</form>
+    <mat-form-field class="max-width">
+      <mat-label>Státusz</mat-label>
+      <input matInput focus formControlName="lifecycleStatus" required>
+    </mat-form-field>
+
+    <mat-form-field class="max-width">
+      <mat-label>Megnevezés</mat-label>
+      <input matInput focus formControlName="name" required>
+    </mat-form-field>
+
+    <mat-form-field class="max-width">
+      <mat-label>Verzió</mat-label>
+      <input matInput focus formControlName="version" required>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Érvényes</mat-label>
+      <input matInput [matDatepicker]="picker" formControlName="validFor" required>
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field class="max-width">
+      <mat-label>Kategória</mat-label>
+      <input matInput focus formControlName="category" required>
+    </mat-form-field>
+
+    <div style="display: flex; justify-content: flex-end;"></div>
+
+    <mat-dialog-actions align="end">
+      <button mat-button mat-dialog-close>Mégsem</button>
+      <button type="submit" mat-raised-button color="primary" class="max-width"
+        [disabled]="form.invalid">Hozzáadás</button>
+    </mat-dialog-actions>
+  </form>
+
+</mat-dialog-content>

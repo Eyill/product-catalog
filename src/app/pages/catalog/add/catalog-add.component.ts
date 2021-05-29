@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { MatDialogRef } from '@angular/material/dialog';
+import { FormControl, FormGroup, Validators, FormArray } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-catalog-add',
   templateUrl: './catalog-add.component.html',
   styleUrls: ['./catalog-add.component.css']
 })
-export class CatalogAddComponent implements OnInit {
+export class CatalogAddComponent{
 
   form: FormGroup = new FormGroup({
     id: new FormControl(''),
@@ -21,16 +21,18 @@ export class CatalogAddComponent implements OnInit {
     validFor: new FormControl(''),
     category: new FormControl(''),
     relatedParty: new FormControl(''),
-    
-    
-    // id: new FormControl(''),
-    // title: new FormControl('', Validators.required),
-    // description: new FormControl('KEKW'),
-    // img: new FormControl(''),
-    // star: new FormControl(false)
   });
 
-  constructor() { }
+  error = false;
 
-  ngOnInit(): void {}
+  constructor(private router: Router) { }
+
+  add_catalog(): void {
+    this.error = false;
+    if (this.form.valid) {
+      console.log(this.form.value);
+      return;
+    }
+    this.error = true;
+  }
 }
