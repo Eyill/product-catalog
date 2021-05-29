@@ -1,0 +1,38 @@
+<mat-toolbar>
+  <button mat-button [routerLink]="[ '/' ]">
+    <mat-icon>home</mat-icon>
+  </button>
+
+  <button mat-button [matMenuTriggerFor]="menu">
+    Katalógusok&nbsp;
+    <mat-icon>arrow_drop_down</mat-icon>
+  </button>
+
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item [routerLink]="[ '/catalog-add' ]">
+      <mat-icon>add</mat-icon>
+      <span>Hozzáadás</span>
+    </button>
+    <button mat-menu-item>
+      <mat-icon>list</mat-icon>
+      <span>Listázás</span>
+    </button>
+  </mat-menu>
+    
+  <button mat-button [matMenuTriggerFor]="menu">
+    Termékek&nbsp;
+    <mat-icon>arrow_drop_down</mat-icon>
+  </button>
+  
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item [routerLink]="[ '/' ]">
+      <mat-icon>add</mat-icon>
+      <span>Hozzáadás</span>
+    </button>
+    <button mat-menu-item [routerLink]="[ '/' ]">
+      <mat-icon>list</mat-icon>
+      <span>Listázás</span>
+    </button>
+  </mat-menu>
+
+</mat-toolbar>

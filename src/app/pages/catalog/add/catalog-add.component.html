@@ -1,0 +1,46 @@
+<form [formGroup]="form">
+  <h3>Katalógus felvétel</h3>
+  
+  <mat-form-field class="max-width">
+    <mat-label>Kapcsolodó link</mat-label>
+    <input matInput placeholder="Pl: mycsp.com:8080/tmf-api/productCatalogManagement/v4/Catalog/3830" focus formControlName="href" required>
+  </mat-form-field>
+  
+  <mat-form-field class="max-width">
+    <mat-label>Katalógus típusa</mat-label>
+    <input matInput focus formControlName="catalogType" required>
+  </mat-form-field>
+  
+  <mat-form-field class="max-width">
+    <mat-label>Leírás</mat-label>
+    <input matInput focus formControlName="description" required>
+  </mat-form-field>
+  
+  <mat-form-field class="max-width">
+    <mat-label>Státusz</mat-label>
+    <input matInput  focus formControlName="lifecycleStatus" required>
+  </mat-form-field>
+
+  <mat-form-field class="max-width">
+    <mat-label>Megnevezés</mat-label>
+    <input matInput focus formControlName="name" required>
+  </mat-form-field>
+  
+  <mat-form-field class="max-width">
+    <mat-label>Verzió</mat-label>
+    <input matInput  focus formControlName="version" required>
+  </mat-form-field>
+
+  <mat-form-field class="max-width">
+    <mat-label>Érvényes</mat-label>
+    <input matInput  focus formControlName="validFor" required>
+  </mat-form-field>
+
+  <mat-form-field class="max-width">
+    <mat-label>Kategória</mat-label>
+    <input matInput focus formControlName="category" required>
+  </mat-form-field>
+
+  <div style="display: flex; justify-content: flex-end;">
+  </div>
+</form>
