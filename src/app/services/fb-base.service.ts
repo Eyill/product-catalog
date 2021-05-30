@@ -20,7 +20,6 @@ export class FbBaseService<T extends { id?: string }> {
   }
 
   get(collectionName: string) {
-    // return this.afs.collection(collectionName).valueChanges();
     return this.afs.collection(collectionName, ref => {
       let query: CollectionReference | Query = ref;
       query = query.orderBy('id', 'asc');

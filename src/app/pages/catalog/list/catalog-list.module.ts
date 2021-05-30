@@ -4,6 +4,8 @@ import { CatalogListComponent } from './catalog-list.component';
 import { MatTableModule } from '@angular/material/table';
 import { CatalogListRoutingModule } from './catalog-list-routing.module';
 import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [CatalogListComponent],
@@ -11,7 +13,9 @@ import { MatCardModule } from '@angular/material/card';
     CommonModule,
     MatTableModule,
     CatalogListRoutingModule,
-    MatCardModule
+    MatCardModule,
+    MatButtonModule,
+    MatIconModule
   ],
   exports:[CatalogListComponent]
 })

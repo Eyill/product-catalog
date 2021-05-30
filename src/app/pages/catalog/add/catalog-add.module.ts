@@ -6,7 +6,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { CatalogAddRoutingModule } from './catalog-add-routing.module';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatMomentDateModule } from '@angular/material-moment-adapter';
 import { MatNativeDateModule } from '@angular/material/core';
@@ -23,9 +22,9 @@ import { MatNativeDateModule } from '@angular/material/core';
     MatFormFieldModule,
     MatDatepickerModule,
     MatMomentDateModule,
-    MatNativeDateModule, 
+    MatNativeDateModule,
   ],
-  entryComponents:[CatalogAddComponent],
-  exports: [CatalogAddComponent]
+  entryComponents: [CatalogAddComponent],
+  exports: [CatalogAddComponent],
 })
-export class CatalogAddModule { }
+export class CatalogAddModule {}
