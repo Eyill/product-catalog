@@ -2,12 +2,13 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore, CollectionReference, Query } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { Catalog } from '../shared/models/catalog.model';
+import { catchError, debounceTime, map, startWith, tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 
-export class FbBaseService <T extends { id?: string }> {  
+export class FbBaseService<T extends { id?: string }> {
 
   constructor(private afs: AngularFirestore) { }
 
@@ -17,15 +18,16 @@ export class FbBaseService <T extends { id?: string }> {
     await this.afs.collection(collectionName).doc(uid).set(data);
     return uid;
   }
-  
-  get(collectionName: string){
-   return this.afs.collection(collectionName, ref => {
-     let query: CollectionReference | Query = ref;
-     query = query.orderBy('id', 'asc');
-     return query;
-   }).valueChanges() as Observable<T[]>;
+
+  get(collectionName: string) {
+    // return this.afs.collection(collectionName).valueChanges();
+    return this.afs.collection(collectionName, ref => {
+      let query: CollectionReference | Query = ref;
+      query = query.orderBy('id', 'asc');
+      return query;
+    }).valueChanges() as Observable<T[]>;
   }
-  
+
   getById(collectionName: string, id: string): Observable<any> {
     return this.afs.collection(collectionName).doc(id).valueChanges();
   }
@@ -37,5 +39,17 @@ export class FbBaseService <T extends { id?: string }> {
 
   delete(collectionName: string, id: string): Promise<void> {
     return this.afs.collection(collectionName).doc(id).delete();
+  }
+
+  getList(collectionName: string): Observable<any[]>{
+    return this.afs.collection(collectionName).snapshotChanges()
+    .pipe(
+      map(response => {
+        return response.map(dataResp => {
+          const data = dataResp.payload.doc.data();
+          return data;
+        });
+      })
+    );      
   }
 }
