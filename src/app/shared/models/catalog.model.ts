@@ -13,7 +13,4 @@ export interface Catalog{
   validFor: Date,
   category?: Array<CategoryRef>,
   relatedParty?: Array<RelatedParty>,
-  //@baseType: string,
-  //@schemaLocation: Uri
-  //@type: string
 }

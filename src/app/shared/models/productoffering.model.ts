@@ -21,7 +21,4 @@ export interface ProductOffering{
   place?:  Array<Ref>,
   productOfferingPrice?: Array<Ref>,
   aggrement?: Array<Ref> 
-  //@baseType: string,
-  //@schemaLocation: Uri
-  //@type: string
 }

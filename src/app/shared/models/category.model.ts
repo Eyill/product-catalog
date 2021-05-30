@@ -6,16 +6,12 @@ export interface Category{
   href: string,
   description: string,
   isRoot: boolean,
-  lastUpdate: any, //DateTime
+  lastUpdate: Date,
   lifecycleStatus: string,
   name: string,
   parentId: string,
   version: string,
-  validFor: any, //TimePeriod
+  validFor: Date, 
   category?: Array<CategoryRef>,
   productOffering?: Array<ProductOfferingRef>,
-  
-  //@baseType: string,
-  //@schemaLocation: Uri
-  //@type: string
 }

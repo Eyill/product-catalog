@@ -26,13 +26,4 @@ export class CatalogAddComponent{
   error = false;
 
   constructor(private router: Router) { }
-
-  add_catalog(): void {
-    this.error = false;
-    if (this.form.valid) {
-      console.log(this.form.value);
-      return;
-    }
-    this.error = true;
-  }
 }

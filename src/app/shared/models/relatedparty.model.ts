@@ -3,8 +3,4 @@ export interface RelatedParty{
   href: string,
   name: string,
   role: string,
-  //@baseType: string,
-  //@schemaLocation: Uri
-  //@type: string,
-  //@referredType: string
 }
